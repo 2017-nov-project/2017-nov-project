@@ -1,31 +1,21 @@
 const mongoose = require('mongoose');
 const {House} = require('../models/');
 
-
 const averageHousePrice = (req, res, next) => {
 
     const {postcode} = req.params
-
-    console.log({postcode});
-    
-
     
     House.aggregate([
-        { $match: { postcode }
-
+        {$match: { postcode }
         },
-          {  
-        $group:
+        {$group:
             {
                 _id: '$postcode',
                 average: {$avg: '$price_paid'}
             }
         }
     ])
-      
-         .then(houses => res.send(houses))
-     
-
+    .then(houses => res.send(houses))
 }
 
 module.exports = {averageHousePrice};

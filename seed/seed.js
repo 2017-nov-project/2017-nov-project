@@ -4,7 +4,6 @@ mongoose.Promise = Promise;
 const {House} = require('../models');
 const {housesData} = require('./data');
 
-
 const seedDB = dbUrl => {
 
     const houses = housesData.map(house => {
