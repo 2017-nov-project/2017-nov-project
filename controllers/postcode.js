@@ -6,8 +6,7 @@ const averageHousePrice = (req, res, next) => {
     const {postcode} = req.params
     
     House.aggregate([
-        {$match: { postcode }
-        },
+        {$match: { postcode }},
         {$group:
             {
                 _id: '$postcode',
