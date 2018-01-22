@@ -4,20 +4,22 @@ mongoose.Promise = Promise;
 const {House} = require('../models');
 const {housesData} = require('./data');
 
+console.log(Array.isArray(housesData));
 
 
 const seedDB = dbUrl => {
 
-    return mongoose.connect(dbUrl)
-           .then(() => {
-            mongoose.connection.db.dropDatabase();
-           })
-           .then(() => {
+    const houses = housesData.map(house => {
+        const houseWithoutId = {...house}
+        Reflect.deleteProperty(houseWithoutId, '_id')
+        return houseWithoutId
+    });
+    
 
-            House.collection.insert(housesData) 
-                   
-        
-           }).catch(console.log)
+    return mongoose.connect(dbUrl)
+           .then(() => mongoose.connection.db.dropDatabase())
+           .then(() => House.collection.insertMany(houses))
+           .catch(console.log)
 };
 
 module.exports = {seedDB}

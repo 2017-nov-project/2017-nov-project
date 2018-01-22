@@ -21001,4 +21001,4 @@ const housesData =  [
     }
 ]
 
-module.exports = {housesData}
+module.exports = housesData
