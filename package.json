@@ -4,7 +4,7 @@
   "description": "",
   "main": "seed.js",
   "scripts": {
-    "test": "NODE_ENV=development && mocha spec",
+    "test": "NODE_ENV=development && mocha spec --exit",
     "seed": "node seed/dev.seed.js",
     "start": "NODE_ENV=development nodemon listen.js"
   },
@@ -26,6 +26,6 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "chai-http": "^3.0.0"
+    "supertest": "^3.0.0"
   }
 }

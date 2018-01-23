@@ -12,7 +12,7 @@ const getAllHouses = (req, res, next) => {
     
     
     House.find(query)
-         .then(houses => res.send(houses))
+         .then(houses => res.send({ houses }))
 }
 
 module.exports = {getAllHouses};
