@@ -1,4 +1,4 @@
-const {averageHousePrice} = require('./postcode');
-const {getAllHouses} = require('./houses')
+const {averageHousePrice} = require('./averageHousePrice');
+const {getAllHouses} = require('./getHouses')
 
 module.exports = {averageHousePrice, getAllHouses};

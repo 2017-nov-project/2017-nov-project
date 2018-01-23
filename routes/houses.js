@@ -1,9 +1,7 @@
 const router = require('express').Router();
-const {getAllHouses} = require('../controllers')
-
+const { getAllHouses } = require('../controllers');
 
 router.route('/')
-      .get(getAllHouses)
-
+      .get(getAllHouses);
 
 module.exports = router;

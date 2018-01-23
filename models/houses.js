@@ -5,6 +5,7 @@ const houseSchema = new Schema({
     gov_unique_id: String,
     price_paid: Number,
     deed_date: String,
+    postcode: String,
     property_type: String,
     new_build: String,
     estate_type: String,

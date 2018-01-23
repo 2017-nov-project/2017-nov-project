@@ -1,12 +1,10 @@
 const router = require('express').Router();
-const {averageHousePrice, getAllHouses} = require('../controllers')
+const { averageHousePrice, getAllHouses } = require('../controllers');
 
-
-router.route('/:postcode/prices')
-      .get(averageHousePrice)
+router.route('/:postcode/average_price')
+      .get(averageHousePrice);
 
 router.route('/:postcode/houses')
-      .get(getAllHouses)
-
+      .get(getAllHouses);
 
 module.exports = router;
