@@ -10,5 +10,3 @@
 | `GET`       | `/district/:district/average_price` | retrieves average price in district      |
 | `GET`       | `/locality/:locality/houses`        | retrieves all houses in a given locality |
 | `GET`       | `/locality/:locality/average_price` | retrieves average price in locality      |
-|             |                                     |                                          |
-|             |                                     |                                          |
