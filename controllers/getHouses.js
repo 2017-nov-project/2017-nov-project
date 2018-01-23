@@ -2,16 +2,9 @@ const mongoose = require('mongoose');
 const {House} = require('../models/');
 
 const getAllHouses = (req, res, next) => {
-
-    const query = req.params;
-
-    if(query.hasOwnProperty('county')) {
-        
-        query['county'] = query['county'].toUpperCase();
-    }
-    
-    
-    House.find(query)
+    let search = req.params;
+    if (Object.keys(search).length) search = {...search, ...req.query}
+    House.find(search)
          .then(houses => res.send({ houses }))
 }
 
