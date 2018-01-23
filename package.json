@@ -4,9 +4,9 @@
   "description": "",
   "main": "seed.js",
   "scripts": {
-    "test": "psql -f seed/test.seed.sql && mocha spec",
-    "seed": "psql -f seed/dev.seed.sql",
-    "start": "nodemon listen.js"
+    "test": "NODE_ENV=development && mocha spec",
+    "seed": "node seed/dev.seed.js",
+    "start": "NODE_ENV=development nodemon listen.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,12 @@
   },
   "homepage": "https://github.com/2017-nov-project/backend#readme",
   "dependencies": {
+    "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "mongoose": "^5.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0"
   }
 }
