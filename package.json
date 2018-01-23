@@ -4,7 +4,7 @@
   "description": "",
   "main": "seed.js",
   "scripts": {
-    "test": "NODE_ENV=development && mocha spec --exit",
+    "test": "NODE_ENV=test && mocha spec --exit",
     "seed": "node seed/dev.seed.js",
     "start": "NODE_ENV=development nodemon listen.js"
   },

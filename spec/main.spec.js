@@ -8,14 +8,13 @@ const app = require('../app');
 const House = require('../models');
 
 describe('api', () => {
-    describe('/houses', () => {
-        
+    describe('/houses', function () {
         it('GET returns an object with all topics and status 200', () => {
             return request(app)
-                .get('api/houses')
+                .get('/api/houses')
                 .expect(200)
                 .then(res => {
-                    console.log(res)
+                    //console.log(res.body)
                 })
         })
     })
