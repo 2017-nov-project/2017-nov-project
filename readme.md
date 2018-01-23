@@ -1,3 +1,5 @@
+## avaliable APIs
+
 | HTTP method | URI path                            | Description                              |
 | ----------- | :---------------------------------- | ---------------------------------------- |
 | `GET`       | `/houses`                           | retrieves all houses`GET`                |
@@ -10,3 +12,14 @@
 | `GET`       | `/district/:district/average_price` | retrieves average price in district      |
 | `GET`       | `/locality/:locality/houses`        | retrieves all houses in a given locality |
 | `GET`       | `/locality/:locality/average_price` | retrieves average price in locality      |
+
+
+## Property Type Key
+
+| Letter | Property Type   |
+| ------ | --------------- |
+| d      | Detached        |
+| s      | Semi-detached   |
+| t      | Terraced        |
+| f      | Flat/Maisonette |
+| o      | Other           |
