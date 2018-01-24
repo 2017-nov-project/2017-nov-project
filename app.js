@@ -3,7 +3,7 @@ const bodyparser = require('body-parser');
 const { apiRouter } = require('./routes');
 
 const mongoose = require('mongoose');
-require('dotenv').config({ path: `./.env.${process.env.NODE_ENV}` });
+if (process.env.NODE_ENV !== 'production') require('dotenv').config({ path: `./.env.${process.env.NODE_ENV}` });
 const { DB_URL } = process.env
 app.engine('md', require('marked-engine').renderFile);
 
