@@ -1,14 +1,19 @@
+const _ = require('underscore');
+
 const mongoose = require('mongoose');
 const { House } = require('../models/');
 
 const getAllHouses = (req, res, next) => {
-    let search = req.params;
-    const { street } = req.query;
-    const { property_type } = req.query;
-    const { new_build } = req.query;
+    const param = req.params;
+    const query = req.query;
+    let search = {};
 
-    if (Object.keys(search).length) search = { ...search, street, property_type, new_build }
-    else search = { ...search, property_type, new_build }
+    if (Object.keys(param).length) search = { ...param, ...query }
+    else {
+        newQuery = _.omit(query, 'street')
+        search = { ...param, ...newQuery }
+    }
+
     House.find(search)
         .then(houses => res.send({ houses }))
 }
