@@ -7,6 +7,9 @@ require('dotenv').config({ path: `./.env.${process.env.NODE_ENV}` });
 const { DB_URL } = process.env
 app.engine('md', require('marked-engine').renderFile);
 
+console.log(process.env.NODE_ENV);
+
+
 
 mongoose.Promise = Promise;
 mongoose.connect(DB_URL);
