@@ -8,6 +8,7 @@ const { DB_URL } = process.env
 app.engine('md', require('marked-engine').renderFile);
 
 console.log(process.env.NODE_ENV);
+console.log(process.env.DB_URL);
 
 
 
