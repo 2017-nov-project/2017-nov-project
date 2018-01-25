@@ -1,3 +1,4 @@
-const House = require('./houses')
+const House = require('./houses');
+const Postcode = require('./postcodes');
 
-module.exports = {House}
+module.exports = { House, Postcode };

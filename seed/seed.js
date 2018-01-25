@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 mongoose.Promise = Promise;
 
 const {House} = require('../models');
+const {Postcode} = require('../models');
+
 const {housesData} = require('./data');
+const {postcodeData} = require('./data');
 
 const seedDB = dbUrl => {
 

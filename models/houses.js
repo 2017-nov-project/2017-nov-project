@@ -14,6 +14,7 @@ const houseSchema = new Schema({
     street: String,
     locality: String,
     town: String,
+    district: String,
     county: String,
     transaction_category: String,
     linked_data_uri: String
