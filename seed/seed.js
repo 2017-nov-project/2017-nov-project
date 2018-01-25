@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 mongoose.Promise = Promise;
 
 const {House} = require('../models');
+const {Postcode} = require('../models');
+
 const {housesData} = require('./data');
+const {postcodeData} = require('./data');
 
 const seedDB = dbUrl => {
 
@@ -15,6 +18,7 @@ const seedDB = dbUrl => {
     return mongoose.connect(dbUrl)
            .then(() => mongoose.connection.db.dropDatabase())
            .then(() => House.collection.insertMany(houses))
+           .then(() => Postcode.collection.insertMany(postcodeData))
            .then(() => House.count())
            .then(count => console.log(`${count} records added, closing connection.`))
            .then(() => mongoose.disconnect())
