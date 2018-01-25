@@ -18,6 +18,7 @@ const seedDB = dbUrl => {
     return mongoose.connect(dbUrl)
            .then(() => mongoose.connection.db.dropDatabase())
            .then(() => House.collection.insertMany(houses))
+           .then(() => Postcode.collection.insertMany(postcodeData))
            .then(() => House.count())
            .then(count => console.log(`${count} records added, closing connection.`))
            .then(() => mongoose.disconnect())

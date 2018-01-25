@@ -35804,3 +35804,5 @@ const postcodesData = [
         "error": "No postcode query submitted. Remember to include query parameter"
     }
 ]
+
+module.exports = postcodesData;
