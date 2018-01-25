@@ -6,6 +6,7 @@
 |    `GET`    | `/average_price `*                     | retrieves average price in UK          |
 |    `GET`    | `/postcode/:postcode/houses `**        | retrieves all houses in given postcode |
 |    `GET`    | `/postcode/:postcode/average_price `** | retrieves average price in postcode    |
+|    `GET`    | `/postcode/:postcode/coordinates `     | retrieves coordinates for postcode     |
 |    `GET`    | `/town/:town/houses `**                | retrieves all houses in given town     |
 |    `GET`    | `/town/:town/average_price `**         | retrieves average price in town        |
 |    `GET`    | `/county/:county/houses `**            | retrieves all houses in given county   |
