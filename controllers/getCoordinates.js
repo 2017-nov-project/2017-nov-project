@@ -19,7 +19,8 @@ const getCoordinates = (req, res, next) => {
         return postcodesData.map(postcodeData => {
           const { longitude } = postcodeData.result;
           const { latitude } = postcodeData.result;
-          return { longitude, latitude };
+          if (longitude === undefined ) return;
+          else return { longitude, latitude };
         })
       })
       .then(coordinatesArr => res.send({ coordinatesArr }));
