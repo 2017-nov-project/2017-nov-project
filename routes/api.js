@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const housesRouter = require('./houses');
 const priceRouter = require('./price');
+const coordinatesRouter = require('./coordinates');
 const postcodeRouter = require('./postcode');
 const streetRouter = require('./street');
 const localityRouter = require('./locality');
@@ -11,6 +12,7 @@ const countyRouter = require('./county');
 
 router.use('/houses', housesRouter);
 router.use('/average_price', priceRouter);
+router.use('/coordinates', coordinatesRouter);
 router.use('/postcode', postcodeRouter);
 router.use('/street', streetRouter);
 router.use('/locality', localityRouter);
