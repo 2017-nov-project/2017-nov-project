@@ -1,5 +1,6 @@
 const { averageHousePrice } = require('./averageHousePrice');
 const { getAllHouses } = require('./getHouses');
-const { getCoordinates } = require('./getCoordinates');
+const { getPostcodeCoordinates } = require('./getPostcodeCoordinates');
+const { getTownCoordinates } = require('./getTownCoordinates');
 
-module.exports = { averageHousePrice, getAllHouses, getCoordinates };
+module.exports = { averageHousePrice, getAllHouses, getPostcodeCoordinates, getTownCoordinates };
