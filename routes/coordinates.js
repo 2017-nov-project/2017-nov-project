@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const { getCoordinates } = require('../controllers');
+const { getPostcodeCoordinates } = require('../controllers');
 
-router.route('/')
-  .get(getCoordinates);
+router.route('/postcodes')
+  .get(getPostcodeCoordinates);
 
 module.exports = router;
