@@ -7,7 +7,7 @@ const request = require('supertest');
 const app = require('../app');
 
 describe('api', () => {
-    describe('/houses', function () {
+    describe('/houses', () => {
         it('GET returns an object with all houses', () => {
             return request(app)
                 .get('/api/houses')
@@ -41,7 +41,7 @@ describe('api', () => {
                 });
         });
     });
-    describe('/average_price', function () {
+    describe('/average_price', () =>  {
         it('GET returns an array with average price for all UK houses', () => {
             return request(app)
                 .get('/api/average_price')
@@ -76,7 +76,22 @@ describe('api', () => {
                 });
         });
     });
-    describe('/postcode/:postcode/average_price', function () {
+    describe('/coordinates/postcodes', () => {
+        it('GET returns an object with all coordinates for available postcodes', () => {
+            return request(app)
+                .get('/api/coordinates/postcodes')
+                .expect(200)
+                .then(res => {
+                    expect(res.body).to.be.an('object');
+                    expect(res.body.coordinatesArr).to.be.an('array');
+                    expect(res.body.coordinatesArr.length).to.equal(999);
+                    expect(res.body.coordinatesArr[0].longitude).to.be.a('number');
+                    expect(res.body.coordinatesArr[0].latitude).to.be.a('number');
+                    
+                });
+        });
+    })
+    describe('/postcode/:postcode/average_price', () => {
         it('GET returns an array with average price for given postcode', () => {
             return request(app)
                 .get('/api/postcode/B23 6QF/average_price')
@@ -126,7 +141,7 @@ describe('api', () => {
                 });
         });
     });
-    describe('/postcode/:postcode/houses', function () {
+    describe('/postcode/:postcode/houses', () => {
         it('GET returns an object with all houses for given postcode', () => {
             return request(app)
                 .get('/api/postcode/B23 6QF/houses')
@@ -175,7 +190,7 @@ describe('api', () => {
                 });
         });
     });
-    describe('/postcode/:postcode/coordinates', function () {
+    describe('/postcode/:postcode/coordinates', () => {
         it('GET returns an object with latitude and longitude for given postcode', () => {
             return request(app)
                 .get('/api/postcode/B23 6QF/coordinates')
@@ -187,8 +202,8 @@ describe('api', () => {
                     expect(res.body.coordinates.longitude).to.be.an('number');                    
                 })
         })
-    })
-    describe('/locality/:locality/average_price', function () {
+    });
+    describe('/locality/:locality/average_price', () => {
         it('GET returns an array with average price for given locality', () => {
             return request(app)
                 .get('/api/locality/BRIDLINGTON/average_price')
@@ -238,7 +253,7 @@ describe('api', () => {
                 });
         });
     });
-    describe('/locality/:locality/houses', function () {
+    describe('/locality/:locality/houses', () => {
         it('GET returns an object with all houses for given locality', () => {
             return request(app)
                 .get('/api/locality/BRIDLINGTON/houses')
@@ -287,7 +302,7 @@ describe('api', () => {
                 });
         });
     });
-    describe('/town/:town/average_price', function () {
+    describe('/town/:town/average_price', () => {
         it('GET returns an array with average price for given town', () => {
             return request(app)
                 .get('/api/town/YORK/average_price')
@@ -337,7 +352,7 @@ describe('api', () => {
                 });
         });
     });
-    describe('/town/:town/houses', function () {
+    describe('/town/:town/houses', () => {
         it('GET returns an object with all houses for given town', () => {
             return request(app)
                 .get('/api/town/YORK/houses')
@@ -386,7 +401,20 @@ describe('api', () => {
                 });
         });
     });
-    describe('/district/:district/average_price', function () {
+    describe('/town/:town/coordinates', () => {
+        it('GET returns an object with latitude and longitude for given town', () => {
+            return request(app)
+                .get('/api/town/YORK/coordinates')
+                .expect(200)
+                .then(res => {
+                    expect(res.body).to.be.an('object');
+                    expect(res.body.coordinates).to.be.an('object');
+                    expect(res.body.coordinates.latitude).to.be.an('number');
+                    expect(res.body.coordinates.longitude).to.be.an('number');                    
+                })
+        })
+    });
+    describe('/district/:district/average_price', () => {
         it('GET returns an array with average price for given district', () => {
             return request(app)
                 .get('/api/district/SOUTH BEDFORDSHIRE/average_price')
@@ -436,7 +464,7 @@ describe('api', () => {
                 });
         });
     });
-    describe('/district/:district/houses', function () {
+    describe('/district/:district/houses', () => {
         it('GET returns an object with all houses for given district', () => {
             return request(app)
                 .get('/api/district/SOUTH BEDFORDSHIRE/houses')
@@ -485,7 +513,7 @@ describe('api', () => {
                 });
         });
     });
-    describe('/county/:county/average_prices', function () {
+    describe('/county/:county/average_prices', () => {
         it('GET returns an array with average price for given county', () => {
             return request(app)
                 .get('/api/county/GREATER MANCHESTER/average_price')
@@ -535,7 +563,7 @@ describe('api', () => {
                 });
         });
     });
-    describe('/county/:county/houses', function () {
+    describe('/county/:county/houses', () => {
         it('GET returns an object with all houses for given county', () => {
             return request(app)
                 .get('/api/county/GREATER MANCHESTER/houses')

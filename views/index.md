@@ -4,7 +4,7 @@
 | :---------: | -------------------------------------- | --------------------------------------- |
 |    `GET`    | `/houses `*                            | retrieves all houses                    |
 |    `GET`    | `/average_price `*                     | retrieves average price in UK           |
-|    `GET`    | `/coordinates/postcodes `*             | retrieves coordinates for all postcodes |
+|    `GET`    | `/coordinates/postcodes `              | retrieves coordinates for all postcodes |
 |    `GET`    | `/postcode/:postcode/houses `**        | retrieves all houses in given postcode  |
 |    `GET`    | `/postcode/:postcode/average_price `** | retrieves average price in postcode     |
 |    `GET`    | `/postcode/:postcode/coordinates `     | retrieves coordinates for postcode      |
@@ -13,7 +13,7 @@
 |    `GET`    | `/town/:town/coordinates `             | retrieves coordinates for town          |
 |    `GET`    | `/county/:county/houses `**            | retrieves all houses in given county    |
 |    `GET`    | `/county/:county/average_price `**     | retrieves average price in county       |
-|    `GET`    | `/district/:district/houses`**         | retrieves all houses in given district  | 
+|    `GET`    | `/district/:district/houses`**         | retrieves all houses in given district  |
 |    `GET`    | `/district/:district/average_price `** | retrieves average price in district     |
 |    `GET`    | `/locality/:locality/houses `**        | retrieves all houses in given locality  |
 |    `GET`    | `/locality/:locality/average_price `** | retrieves average price in locality     |
@@ -36,7 +36,7 @@ All parameters and query values have to be capital letters.
 
 ## New Building Key
 
-| Letter | Property Type |
-| ------ | ------------- |
-| Y      | New           |
-| N      | Not New       |
+| Letter | New Build Type |
+| ------ | -------------- |
+| Y      | New            |
+| N      | Not New        |

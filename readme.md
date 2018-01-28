@@ -4,7 +4,7 @@
 | :---------: | -------------------------------------- | --------------------------------------- |
 |    `GET`    | `/houses `*                            | retrieves all houses                    |
 |    `GET`    | `/average_price `*                     | retrieves average price in UK           |
-|    `GET`    | `/coordinates/postcodes `*             | retrieves coordinates for all postcodes |
+|    `GET`    | `/coordinates/postcodes `              | retrieves coordinates for all postcodes |
 |    `GET`    | `/postcode/:postcode/houses `**        | retrieves all houses in given postcode  |
 |    `GET`    | `/postcode/:postcode/average_price `** | retrieves average price in postcode     |
 |    `GET`    | `/postcode/:postcode/coordinates `     | retrieves coordinates for postcode      |
@@ -36,7 +36,7 @@ All parameters and query values have to be capital letters.
 
 ## New Building Key
 
-| Letter | Property Type |
-| ------ | ------------- |
-| Y      | New           |
-| N      | Not New       |
+| Letter | New Build Type |
+| ------ | -------------- |
+| Y      | New            |
+| N      | Not New        |
