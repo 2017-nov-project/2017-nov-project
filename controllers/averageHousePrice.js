@@ -1,5 +1,4 @@
 const _ = require('underscore');
-
 const mongoose = require('mongoose');
 const { House } = require('../models/');
 
