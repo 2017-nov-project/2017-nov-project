@@ -3,10 +3,18 @@ process.env.NODE_ENV = 'test';
 const mongoose = require('mongoose');
 const { expect } = require('chai');
 const request = require('supertest');
-
-const app = require('../app');
+const { seedDB } = require('../seed/seed');
 
 describe('api', () => {
+    let app;
+    
+    before(() => {        
+        return seedDB('mongodb://localhost:27017/housing_test')
+            .then(() => {app = require('../app')});
+    });
+
+    after(() => mongoose.connection.db.dropDatabase());
+
     describe('/houses', () => {
         it('GET returns an object with all houses', () => {
             return request(app)
@@ -41,7 +49,7 @@ describe('api', () => {
                 });
         });
     });
-    describe('/average_price', () =>  {
+    describe('/average_price', () => {
         it('GET returns an array with average price for all UK houses', () => {
             return request(app)
                 .get('/api/average_price')
@@ -87,7 +95,7 @@ describe('api', () => {
                     expect(res.body.coordinatesArr.length).to.equal(999);
                     expect(res.body.coordinatesArr[0].longitude).to.be.a('number');
                     expect(res.body.coordinatesArr[0].latitude).to.be.a('number');
-                    
+
                 });
         });
     })
@@ -199,7 +207,7 @@ describe('api', () => {
                     expect(res.body).to.be.an('object');
                     expect(res.body.coordinates).to.be.an('object');
                     expect(res.body.coordinates.latitude).to.be.an('number');
-                    expect(res.body.coordinates.longitude).to.be.an('number');                    
+                    expect(res.body.coordinates.longitude).to.be.an('number');
                 })
         })
     });
@@ -410,7 +418,7 @@ describe('api', () => {
                     expect(res.body).to.be.an('object');
                     expect(res.body.coordinates).to.be.an('object');
                     expect(res.body.coordinates.latitude).to.be.an('number');
-                    expect(res.body.coordinates.longitude).to.be.an('number');                    
+                    expect(res.body.coordinates.longitude).to.be.an('number');
                 })
         })
     });
