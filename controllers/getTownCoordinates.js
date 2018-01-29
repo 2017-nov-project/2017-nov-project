@@ -6,7 +6,6 @@ const getTownCoordinates = (req, res, next) => {
 
   Town.findOne({ city: town }).lean()
     .then(townData => {
-      console.log(townData.longitude)
       const { longitude } = townData;
       const { latitude } = townData;
       res.send({ coordinates: { longitude, latitude } });
