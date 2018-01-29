@@ -55,10 +55,8 @@ describe('api', () => {
                 .get('/api/average_price')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0].average).to.equal(68278.409);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body.average).to.equal('68278');
                 });
         });
         it('?property_type=(property_type) - GET returns an array with average price for houses and given property type', () => {
@@ -66,10 +64,8 @@ describe('api', () => {
                 .get('/api/average_price?property_type=S')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0].average).to.equal(59015.9875);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body.average).to.equal('59016');
                 });
         });
         it('?new_build=(new_build) - GET returns an array with average price for houses and given build status', () => {
@@ -77,10 +73,8 @@ describe('api', () => {
                 .get('/api/average_price?new_build=Y')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0].average).to.equal(78391.72932330827);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body.average).to.equal('78392');
                 });
         });
     });
@@ -105,11 +99,9 @@ describe('api', () => {
                 .get('/api/postcode/B23 6QF/average_price')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('B23 6QF');
-                    expect(res.body[0].average).to.equal(24000);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('B23 6QF');
+                    expect(res.body.average).to.equal('24000');
                 });
         });
         it('?street=(street_name) - GET returns an array with average price for given postcode and street', () => {
@@ -117,11 +109,9 @@ describe('api', () => {
                 .get('/api/postcode/B23 6QF/average_price?street=DEAN ROAD')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('B23 6QF');
-                    expect(res.body[0].average).to.equal(24000);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('B23 6QF');
+                    expect(res.body.average).to.equal('24000');
                 });
         });
         it('?property_type=(property_type) - GET returns an array with average price for given postcode and propert type', () => {
@@ -129,11 +119,9 @@ describe('api', () => {
                 .get('/api/postcode/B13 0QH/average_price?property_type=S')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('B13 0QH');
-                    expect(res.body[0].average).to.equal(78000);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('B13 0QH');
+                    expect(res.body.average).to.equal('78000');
                 });
         });
         it('?new_build=(new_build) - GET returns an array with average price for given postcode and build status', () => {
@@ -141,11 +129,9 @@ describe('api', () => {
                 .get('/api/postcode/B13 0QH/average_price?new_build=N')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('B13 0QH');
-                    expect(res.body[0].average).to.equal(78000);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('B13 0QH');
+                    expect(res.body.average).to.equal('78000');
                 });
         });
     });
@@ -217,11 +203,9 @@ describe('api', () => {
                 .get('/api/locality/BRIDLINGTON/average_price')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('BRIDLINGTON');
-                    expect(res.body[0].average).to.equal(48475);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('BRIDLINGTON');
+                    expect(res.body.average).to.equal('48475');
                 });
         });
         it('?street=(street_name) - GET returns an array with average price for given locality and street', () => {
@@ -229,11 +213,9 @@ describe('api', () => {
                 .get('/api/locality/BRIDLINGTON/average_price?street=AVENUE COURT')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('BRIDLINGTON');
-                    expect(res.body[0].average).to.equal(44950);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('BRIDLINGTON');
+                    expect(res.body.average).to.equal('44950');
                 });
         });
         it('?property_type=(property_type) - GET returns an array with average price for given locality and propert type', () => {
@@ -241,11 +223,9 @@ describe('api', () => {
                 .get('/api/locality/BRIDLINGTON/average_price?property_type=S')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('BRIDLINGTON');
-                    expect(res.body[0].average).to.equal(52000);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('BRIDLINGTON');
+                    expect(res.body.average).to.equal('52000');
                 });
         });
         it('?new_build=(new_build) - GET returns an array with average price for given locality and build status', () => {
@@ -253,11 +233,9 @@ describe('api', () => {
                 .get('/api/locality/BRIDLINGTON/average_price?new_build=Y')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('BRIDLINGTON');
-                    expect(res.body[0].average).to.equal(44950);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('BRIDLINGTON');
+                    expect(res.body.average).to.equal('44950');
                 });
         });
     });
@@ -316,11 +294,9 @@ describe('api', () => {
                 .get('/api/town/YORK/average_price')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('YORK');
-                    expect(res.body[0].average).to.equal(66740);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('YORK');
+                    expect(res.body.average).to.equal('66740');
                 });
         });
         it('?street=(street_name) - GET returns an array with average price for given town and street', () => {
@@ -328,11 +304,9 @@ describe('api', () => {
                 .get('/api/town/YORK/average_price?street=TURNBERRY DRIVE')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('YORK');
-                    expect(res.body[0].average).to.equal(55250);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('YORK');
+                    expect(res.body.average).to.equal('55250');
                 });
         });
         it('?property_type=(property_type) - GET returns an array with average price for given town and property type', () => {
@@ -340,11 +314,9 @@ describe('api', () => {
                 .get('/api/town/YORK/average_price?property_type=S')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('YORK');
-                    expect(res.body[0].average).to.equal(56125);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('YORK');
+                    expect(res.body.average).to.equal('56125');
                 });
         });
         it('?new_build=(new_build) - GET returns an array with average price for given town and build status', () => {
@@ -352,11 +324,9 @@ describe('api', () => {
                 .get('/api/town/YORK/average_price?new_build=N')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('YORK');
-                    expect(res.body[0].average).to.equal(66740);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('YORK');
+                    expect(res.body.average).to.equal('66740');
                 });
         });
     });
@@ -428,11 +398,9 @@ describe('api', () => {
                 .get('/api/district/SOUTH BEDFORDSHIRE/average_price')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('SOUTH BEDFORDSHIRE');
-                    expect(res.body[0].average).to.equal(72000);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('SOUTH BEDFORDSHIRE');
+                    expect(res.body.average).to.equal('72000');
                 });
         });
         it('?street=(street_name) - GET returns an array with average price for given district and street', () => {
@@ -440,11 +408,9 @@ describe('api', () => {
                 .get('/api/district/SOUTH BEDFORDSHIRE/average_price?street=HOCKLIFFE ROAD')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('SOUTH BEDFORDSHIRE');
-                    expect(res.body[0].average).to.equal(135000);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('SOUTH BEDFORDSHIRE');
+                    expect(res.body.average).to.equal('135000');
                 });
         });
         it('?property_type=(property_type) - GET returns an array with average price for given district and property type', () => {
@@ -452,11 +418,9 @@ describe('api', () => {
                 .get('/api/district/SOUTH BEDFORDSHIRE/average_price?property_type=F')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('SOUTH BEDFORDSHIRE');
-                    expect(res.body[0].average).to.equal(9000);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('SOUTH BEDFORDSHIRE');
+                    expect(res.body.average).to.equal('9000');
                 });
         });
         it('?new_build=(new_build) - GET returns an array with average price for given district and build status', () => {
@@ -464,11 +428,9 @@ describe('api', () => {
                 .get('/api/district/SOUTH BEDFORDSHIRE/average_price?new_build=N')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('SOUTH BEDFORDSHIRE');
-                    expect(res.body[0].average).to.equal(72000);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('SOUTH BEDFORDSHIRE');
+                    expect(res.body.average).to.equal('72000');
                 });
         });
     });
@@ -527,11 +489,9 @@ describe('api', () => {
                 .get('/api/county/GREATER MANCHESTER/average_price')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('GREATER MANCHESTER');
-                    expect(res.body[0].average).to.equal(49806.50943396227);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('GREATER MANCHESTER');
+                    expect(res.body.average).to.equal('49807');
                 });
         });
         it('?street=(street_name) - GET returns an array with average price for given county and street', () => {
@@ -539,11 +499,9 @@ describe('api', () => {
                 .get('/api/county/GREATER MANCHESTER/average_price?street=BARDSLEY%20STREET')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('GREATER MANCHESTER');
-                    expect(res.body[0].average).to.equal(26000)
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('GREATER MANCHESTER');
+                    expect(res.body.average).to.equal('26000')
                 });
         });
         it('?property_type=(property_type) - GET returns an array with average price for given county and property type', () => {
@@ -551,11 +509,9 @@ describe('api', () => {
                 .get('/api/county/GREATER MANCHESTER/average_price?property_type=F')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('GREATER MANCHESTER');
-                    expect(res.body[0].average).to.equal(72975);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('GREATER MANCHESTER');
+                    expect(res.body.average).to.equal('72975');
                 });
         });
         it('?new_build=(new_build) - GET returns an array with average price for given county and build status', () => {
@@ -563,11 +519,9 @@ describe('api', () => {
                 .get('/api/county/GREATER MANCHESTER/average_price?new_build=Y')
                 .expect(200)
                 .then(res => {
-                    expect(res.body).to.be.an('array');
-                    expect(res.body.length).to.equal(1);
-                    expect(res.body[0]).to.be.an('object');
-                    expect(res.body[0]._id).to.equal('GREATER MANCHESTER');
-                    expect(res.body[0].average).to.equal(96149.16666666667);
+                    expect(res.body).to.be.an('object');
+                    expect(res.body._id).to.equal('GREATER MANCHESTER');
+                    expect(res.body.average).to.equal('96149');
                 });
         });
     });
