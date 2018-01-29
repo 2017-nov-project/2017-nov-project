@@ -18,7 +18,7 @@ const averageHousePrice = (req, res, next) => {
                 }
         }
     ])
-        .then(([{_id, average}]) => res.send({_id, average: average.toFixed(2)}))
+        .then(([{_id, average}]) => res.send({_id, average: average.toLocaleString(undefined, {maximumFractionDigits: 0})}))
         
 }
 
