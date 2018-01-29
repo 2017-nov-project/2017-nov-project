@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const { Postcode } = require('../models/');
 
 const getPostcodeCoordinates = (req, res, next) => {
-  const param = req.params;
+  const {postcode} = req.params;
 
-  if (param.postcode) {
-    const search = { 'result.postcode': param.postcode };
+  if (postcode) {
+    const search = { 'result.postcode': postcode };
     Postcode.findOne(search)
       .then(postcodeData => {
         const { longitude, latitude } = postcodeData.result;
