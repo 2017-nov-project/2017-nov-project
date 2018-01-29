@@ -3,14 +3,13 @@ const mongoose = require('mongoose');
 const { House } = require('../models/');
 
 const averageHousePrice = (req, res, next) => {
-    let param = req.params;
-    let query = req.query;
-    const searchType = Object.keys(param)[0];
+    let {params, query} = req;
+    const searchType = Object.keys(params)[0];
 
     if (!searchType) query = _.omit(query, 'street');
 
     House.aggregate([
-        { $match: { $and: [param, query] } },
+        { $match: { $and: [params, query] } },
         {
             $group:
                 {
@@ -19,7 +18,8 @@ const averageHousePrice = (req, res, next) => {
                 }
         }
     ])
-        .then(price => res.send(price))
+        .then(([{_id, average}]) => res.send({_id, average: average.toFixed(2)}))
+        
 }
 
 module.exports = { averageHousePrice };
