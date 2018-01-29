@@ -8,8 +8,7 @@ const getCoordinates = (req, res, next) => {
     const search = { 'result.postcode': param.postcode };
     Postcode.findOne(search)
       .then(postcodeData => {
-        const { longitude } = postcodeData.result;
-        const { latitude } = postcodeData.result;
+        const { longitude, latitude } = postcodeData.result;
         res.send({ coordinates: { longitude, latitude } });
       });
   }
