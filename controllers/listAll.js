@@ -1,13 +1,30 @@
 const mongoose = require('mongoose');
-const { Town } = require('../models/');
+const { Town, Locality } = require('../models/');
 
 const listAll = (req, res, next) => {
 
-const {town} = req.params
+let [[key, value]] = Object.entries(req.params)
 
-  Town.find({city: new RegExp('^' + town)}).lean()
-    .then(townData => townData.map(town => town.city))
-    .then(town => res.send({ town }));
+console.log(key, value);
+
+
+
+if (key === 'town') key = 'city';
+
+console.log({key})
+
+const collection = {
+  city: Town,
+  locality: Locality
+}
+
+console.log(Object.keys(collection))
+
+console.log('collection accessed', collection[key]);
+
+  collection[key].find({[key]: new RegExp('^' + value)}).lean()
+    .then(results => results.map(result => result[key]).slice(0,10))
+    .then(result => res.send({ result }));
 }
 
 module.exports = { listAll };
