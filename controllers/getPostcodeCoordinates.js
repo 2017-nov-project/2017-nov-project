@@ -12,7 +12,7 @@ const getPostcodeCoordinates = (req, res, next) => {
       });
   }
   else {
-    Postcode.find()
+    Postcode.find().lean()
       .then(postcodesData => {
         return postcodesData.map(postcodeData => {
           const { longitude, latitude } = postcodeData;
