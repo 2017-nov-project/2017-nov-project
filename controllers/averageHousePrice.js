@@ -8,14 +8,12 @@ const averageHousePrice = (req, res, next) => {
 
     if (!searchType) query = _.omit(query, 'street');
 
-    console.log(query, params)
-
     House.find({ ...params, ...query })
         .then(houses => {
-            const average = houses.reduce((avr, house) => avr + house.price_paid, 0);
+            const sum = houses.reduce((avr, house) => avr + house.price_paid, 0);
+            const average = houses.length ? sum / houses.length : 0;
             res.send({ _id: params[searchType], average: average.toFixed() })
         });
-
 }
 
 module.exports = { averageHousePrice };
