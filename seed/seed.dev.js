@@ -1,2 +1,4 @@
 const {seedDB} = require('./seed');
-seedDB('mongodb://localhost:27017/housing')
+require('dotenv').config({ path: `./.env.development` });
+const {DB_URL} = process.env;
+seedDB(DB_URL);

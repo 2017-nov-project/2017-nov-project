@@ -4,12 +4,14 @@ const mongoose = require('mongoose');
 const { expect } = require('chai');
 const request = require('supertest');
 const { seedDB } = require('../seed/seed');
+require('dotenv').config({ path: `./.env.test` });
+const {DB_URL} = process.env;
 
 describe('api', () => {
     let app;
     
     before(() => {        
-        return seedDB('mongodb://localhost:27017/housing_test')
+        return seedDB(DB_URL)
             .then(() => {app = require('../app')});
     });
 
