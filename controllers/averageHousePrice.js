@@ -5,18 +5,27 @@ const { House } = require('../models/');
 
 const averageHousePrice = (req, res, next) => {
     let { params, query } = req;
-    
-    const [[searchType, location]] = Object.entries(params)
-    params = {[searchType]: location.toUpperCase()}
+    let searchType
+    let location
+
+    if (Object.keys(params).length !== 0) {
+        const [[searchType, location]] = Object.entries(params)
+        params = { [searchType]: location.toUpperCase() }
+    }
 
     if (!searchType) query = omit(query, 'street');
 
-    House.find({ ...params, ...query })
-        .then(houses => {
-            const sum = houses.reduce((avr, house) => avr + house.pricepaid, 0);
-            const average = houses.length ? sum / houses.length : 0;
-            res.send({ _id: params[searchType], average: average.toFixed() })
-        });
+    House.aggregate([
+        { $match: { $and: [params, query] } },
+        {
+            $group:
+                {
+                    _id: `$${searchType}`,
+                    average: { $avg: '$pricepaid' }
+                }
+        }
+    ])
+        .then(houses => res.send(houses))
 }
 
 module.exports = { averageHousePrice };
