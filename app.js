@@ -2,8 +2,6 @@ const app = require('express')();
 const bodyparser = require('body-parser');
 const apiRouter = require('./routes/api');
 const cors = require('cors')
-
-
 const mongoose = require('mongoose');
 if (process.env.NODE_ENV !== 'production') require('dotenv').config({ path: `./.env.${process.env.NODE_ENV}` });
 const { DB_URL } = process.env
