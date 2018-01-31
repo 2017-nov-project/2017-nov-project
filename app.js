@@ -16,7 +16,7 @@ app.use(cors());
 
 app.use('/api', apiRouter);
 
-app.use('/', (req, res) => res.render('./index.md'))
+app.use('/', (req, res) => res.sendFile(__dirname + '/views/index.html'))
 
 app.use('/*', (req, res) => {
     res.status(404).send('404 - page not found');

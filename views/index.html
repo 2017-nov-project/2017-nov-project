@@ -1,0 +1,135 @@
+<h2 id="avaliable-apis">avaliable APIs</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">HTTP method</th>
+<th>URI path</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>GET</code></td>
+<td><code>/houses</code>*</td>
+<td>retrieves all houses</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>GET</code></td>
+<td><code>/average_price</code>*</td>
+<td>retrieves average price in UK</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>GET</code></td>
+<td><code>/coordinates/postcodes</code></td>
+<td>retrieves coordinates for all postcodes</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>GET</code></td>
+<td><code>/postcode/:postcode/houses</code>**</td>
+<td>retrieves all houses in given postcode</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>GET</code></td>
+<td><code>/postcode/:postcode/average_price</code>**</td>
+<td>retrieves average price in postcode</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>GET</code></td>
+<td><code>/postcode/:postcode/coordinates</code></td>
+<td>retrieves coordinates for postcode</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>GET</code></td>
+<td><code>/town/:town/houses</code>**</td>
+<td>retrieves all houses in given town</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>GET</code></td>
+<td><code>/town/:town/average_price</code>**</td>
+<td>retrieves average price in town</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>GET</code></td>
+<td><code>/town/:town/coordinates</code></td>
+<td>retrieves coordinates for town</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>GET</code></td>
+<td><code>/county/:county/houses</code>**</td>
+<td>retrieves all houses in given county</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>GET</code></td>
+<td><code>/county/:county/average_price</code>**</td>
+<td>retrieves average price in county</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>GET</code></td>
+<td><code>/district/:district/houses</code>**</td>
+<td>retrieves all houses in given district</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>GET</code></td>
+<td><code>/district/:district/average_price</code>**</td>
+<td>retrieves average price in district</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>GET</code></td>
+<td><code>/locality/:locality/houses</code>**</td>
+<td>retrieves all houses in given locality</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>GET</code></td>
+<td><code>/locality/:locality/average_price</code>**</td>
+<td>retrieves average price in locality</td>
+</tr>
+</tbody>
+</table>
+<p><code>* available queries: ?property_type=(property_type), ?new_build=(new_build)</code><br><code>** available queries: ?street=(street_name), ?property_type=(property_type), ?new_build=(new_build)</code></p>
+<p>All parameters and query values have to be capital letters.</p>
+<h2 id="property-type-key">Property Type Key</h2>
+<table>
+<thead>
+<tr>
+<th>Letter</th>
+<th>Property Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D</td>
+<td>Detached</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Semi-detached</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Terraced</td>
+</tr>
+<tr>
+<td>F</td>
+<td>Flat/Maisonette</td>
+</tr>
+</tbody>
+</table>
+<h2 id="new-building-key">New Building Key</h2>
+<table>
+<thead>
+<tr>
+<th>Letter</th>
+<th>New Build Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Y</td>
+<td>New</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Not New</td>
+</tr>
+</tbody>
+</table>
