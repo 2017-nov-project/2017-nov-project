@@ -1,4 +1,5 @@
-const _ = require('underscore');
+const omit = require('object.omit');
+
 const mongoose = require('mongoose');
 const { House } = require('../models/');
 
@@ -6,7 +7,7 @@ const averageHousePrice = (req, res, next) => {
     let { params, query } = req;
     const searchType = Object.keys(params)[0];
 
-    if (!searchType) query = _.omit(query, 'street');
+    if (!searchType) query = omit(query, 'street');
 
     House.find({ ...params, ...query })
         .then(houses => {
