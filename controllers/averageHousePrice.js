@@ -20,12 +20,12 @@ const averageHousePrice = (req, res, next) => {
         {
             $group:
                 {
-                    _id: `$${searchType}`,
+                    _id: 0,
                     average: { $avg: '$pricepaid' }
                 }
         }
     ])
-        .then(houses => res.send(houses))
+        .then(([average]) => res.send(omit(average, '_id')))
 }
 
 module.exports = { averageHousePrice };
