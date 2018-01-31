@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const houseSchema = new Schema({
     gov_unique_id: String,
-    price_paid: Number,
+    pricepaid: Number,
     deed_date: String,
     postcode: String,
     property_type: String,
