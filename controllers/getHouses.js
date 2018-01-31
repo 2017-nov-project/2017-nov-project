@@ -1,4 +1,4 @@
-const _ = require('underscore');
+const omit = require('object.omit');
 
 const mongoose = require('mongoose');
 const { House } = require('../models/');
@@ -10,7 +10,7 @@ const getAllHouses = (req, res, next) => {
 
     if (Object.keys(param).length) search = { ...param, ...query }
     else {
-        newQuery = _.omit(query, 'street')
+        newQuery = omit(query, 'street')
         search = { ...param, ...newQuery }
     }
 
