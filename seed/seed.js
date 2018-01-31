@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const omit = require('object.omit');
 mongoose.Promise = Promise;
-const _ = require('underscore');
 const { House, Postcode, Town, Locality, County } = require('../models');
 const { housesData, postcodeData, townsData, localityData, countyData } = require('./data');
 
