@@ -5,7 +5,9 @@ const { House } = require('../models/');
 
 const averageHousePrice = (req, res, next) => {
     let { params, query } = req;
-    const searchType = Object.keys(params)[0];
+    
+    const [[searchType, location]] = Object.entries(params)
+    params = {[searchType]: location.toUpperCase()}
 
     if (!searchType) query = omit(query, 'street');
 
