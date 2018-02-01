@@ -14,30 +14,33 @@ const getPostcodeCoordinates = async (req, res, next) => {
       .then(coordinates => res.send(coordinates));
   }
   else {
-    Postcode.aggregate(
-      [
-        {
-          $lookup:
-            {
-              from: 'houses',
-              localField: 'postcode',
-              foreignField: 'postcode',
-              as: 'houses'
-            }
-        },
-        {
-          $project: {
-            'postcode': 1,
-            'latitude': 1,
-            'longitude': 1,
-            '_id': 0,
-            'weight': { $divide: [ { $avg: '$houses.pricepaid' },  ukAverage.average ] }
-          },
-        }
-      ])
+    Postcode.find({}, { postcode: 1, latitude: 1, weight: 1, _id: 0 })
       .then(arr => res.send({ arr }))
       .catch(console.log)
   }
 }
+
+// Postcode.aggregate(
+//   [
+//     {
+//       $lookup:
+//         {
+//           from: 'houses',
+//           localField: 'postcode',
+//           foreignField: 'postcode',
+//           as: 'houses'
+//         }
+//     },
+//     {
+//       $project: {
+//         'postcode': 1,
+//         'latitude': 1,
+//         'longitude': 1,
+//         '_id': 0,
+//         'weight': { $divide: [ { $avg: '$houses.pricepaid' },  ukAverage.average ] }
+//       },
+//     },
+//     {$out: 'postcodes'}
+//   ])
 
 module.exports = { getPostcodeCoordinates };
