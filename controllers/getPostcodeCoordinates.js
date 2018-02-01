@@ -34,7 +34,7 @@ const getPostcodeCoordinates = async (req, res, next) => {
             'weight': { $divide: [ { $avg: '$houses.pricepaid' },  ukAverage.average ] }
           },
         }
-      ]).limit(10)
+      ])
       .then(arr => res.send({ arr }))
       .catch(console.log)
   }
