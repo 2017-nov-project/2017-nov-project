@@ -31,16 +31,10 @@ const getPostcodeCoordinates = async (req, res, next) => {
             'latitude': 1,
             'longitude': 1,
             '_id': 0,
-            'houses.pricepaid': 1
-          }
+            'weight': { $divide: [ { $avg: '$houses.pricepaid' },  ukAverage.average ] }
+          },
         }
-      ]).limit(1)
-      .then((postcodes) => postcodes.map(({ postcode, houses, latitude, longitude }) => {
-        const average = houses.reduce((sum, house) => sum += house.pricepaid, 0) / houses.length;
-        const weight = average / ukAverage.average;
-
-        return { postcode, latitude, longitude, weight }
-      }))
+      ]).limit(10)
       .then(arr => res.send({ arr }))
       .catch(console.log)
   }
