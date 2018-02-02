@@ -11,7 +11,7 @@ const getPostcodeCoordinates = async (req, res, next) => {
 
   if (postcode) {
     Postcode.findOne({ 'postcode': postcode }, { postcode: 1, latitude: 1, longitude: 1, _id: 0 })
-      .then(coordinates => res.send(coordinates));
+      .then(coordinates => res.send({coordinates}));
   }
   else {
     Postcode.find({}, { postcode: 1, latitude: 1, longitude: 1, weight: 1, _id: 0 })
