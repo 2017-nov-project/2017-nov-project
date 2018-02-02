@@ -10,7 +10,7 @@ const getPostcodeCoordinates = async (req, res, next) => {
     .then(buffer => buffer.json())
 
   if (postcode) {
-    Postcode.findOne({ 'postcode': postcode }, { postcode: 1, latitude: 1, longitude: 1, _id: 0 })
+    Postcode.findOne({ 'postcode': postcode.toUpperCase() }, { postcode: 1, latitude: 1, longitude: 1, _id: 0 })
       .then(coordinates => res.send({coordinates}));
   }
   else {
